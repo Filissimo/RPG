@@ -151,7 +151,7 @@ def game():
         if npc_stunned > 0:
             index_npc_stunned = f'❌({npc_stunned})'
         player_mini_lvl = player_updates.get_stat('mini_lvl')
-        player_mini_lvl_max = 10 + player_lvl * 10
+        player_mini_lvl_max = 5 + player_lvl * 5
         mini_lvl_until_lvl_up = f'Mini lvls to Lvl up: {player_mini_lvl}/{player_mini_lvl_max}'
         availability_of_lvl_up = ''
         if player_mini_lvl_max > player_mini_lvl:
