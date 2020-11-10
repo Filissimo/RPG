@@ -110,10 +110,10 @@ class Calculator:
     def lvl_up(self, stat_to_lvl_up):
         lvl = player_updates.get_stat('lvl')
         mini_lvl = player_updates.get_stat('mini_lvl')
-        mini_lvl_max = 10 + lvl * 10
+        mini_lvl_max = 5 + lvl * 5
         if mini_lvl >= mini_lvl_max:
             lvl += 1
-            mini_lvl_after_lvl_up = mini_lvl - lvl * 10
+            mini_lvl_after_lvl_up = mini_lvl - lvl * 5
             player_updates.set_stat('mini_lvl', mini_lvl_after_lvl_up)
             player_updates.set_stat('lvl', lvl)
             all_stats = ['hp', 'mana', 'mana_regen', 'dmg', 'heal', 'armor', 'stun']
