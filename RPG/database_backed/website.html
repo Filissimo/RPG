@@ -1,0 +1,136 @@
+<head>
+<style>
+table, th, td {
+  border: 2px solid black;
+}
+th, td {
+  padding: 5px;
+}
+</style>
+</head>
+<div class="outer" align="middle">
+    <table>
+        <tr>
+            <th>
+    {{win_loss_ratio}}
+            </th>
+        </tr>
+    </table>
+<table>
+    <tr>
+        <th colspan="2">{{mini_lvl_until_lvl_up}}</th>
+        <th colspan="2"; style="background-image: url('{{ url_for('static', filename='green.jpg') }}');
+         background-repeat-x: no-repeat;
+         background-size: {{ player_hp_number }}%">{{player_hp}}{{index_player_stunned}}</th>
+        <th colspan="2"; style="background-image: url('{{ url_for('static', filename='green.jpg') }}');
+         background-repeat-x: no-repeat;
+         background-size: {{ npc_hp_number }}%">{{npc_hp}}{{index_npc_stunned}}</th>
+    </tr>
+    <tr>
+        <th colspan="2">{{availability_of_lvl_up}}</th>
+        <th colspan="2">{{player_mana}}</th>
+        <th colspan="2">{{npc_mana}}</th>
+    </tr>
+    <tr>
+        <th colspan="6">
+    {{ message_player }}
+        </th>
+    </tr>
+    <tr>
+        <th colspan="6">
+    {{ message_npc }}
+        </th>
+    </tr>
+</table>
+    <table>
+    <tr>
+        <th>
+        <form action="/attack" method="post">
+        <button type="submit">👊</button>
+    </form>
+        </th>
+        <th>
+        <form action="/heal" method="post">
+        <button type="submit">➕</button>
+    </form>
+        </th>
+        <th>
+        <form action="/stun" method="post">
+        <button type="submit">{{button_stun}}</button>
+    </form>
+        </th>
+    </tr>
+    </table>
+    <table>
+        <tr>
+        <th>
+        <form action="/hp_lvl_up" method="post">
+        <button type="submit">HP lvl up</button>
+    </form></th>
+        <th>{{index_mana_regen}}</th>
+        <th>{{index_physical_dmg}}</th>
+        </tr>
+        <tr>
+        <th>
+        <form action="/mana_lvl_up" method="post">
+        <button type="submit">MANA lvl up</button>
+    </form></th>
+        <th>
+        <form action="/mana_regen_lvl_up" method="post">
+        <button type="submit">mana_regen_lvl_up</button>
+    </form></th>
+        <th>
+        <form action="/dmg_lvl_up" method="post">
+        <button type="submit">dmg_lvl_up</button>
+    </form></th>
+        </tr>
+        <tr>
+        <th>{{index_heal}}</th>
+        <th>{{index_armor}}</th>
+        <th>{{index_stun}}</th>
+        </tr>
+        <tr>
+        <th>
+        <form action="/heal_lvl_up" method="post">
+        <button type="submit">heal_lvl_up</button>
+    </form></th>
+        <th>
+        <form action="/armor_lvl_up" method="post">
+        <button type="submit">armor_lvl_up</button>
+    </form></th>
+        <th>
+        <form action="/stun_lvl_up" method="post">
+        <button type="submit">stun_lvl_up</button>
+    </form></th>
+        </tr>
+        <tr>
+           <th>
+
+           </th>
+           <th>
+
+           </th>
+           <th>
+
+           </th>
+        </tr>
+        <tr>
+           <th>
+
+           </th>
+           <th>
+
+           </th>
+           <th>
+
+           </th>
+        </tr>
+        <tr>
+            <th colspan="3">
+        <form action="/restart" method="post">
+            <button type="submit">Restart Game</button>
+        </form>
+            </th>
+        </tr>
+    </table>
+</div>
