@@ -4,13 +4,17 @@ def input_db():
             'collection': 'enemies',
             'combat_number': None,
             'lvl': 1,
-            'hp': {'lvl': 50, 'current': 50, 'random': 13, 'exp': None},
+            'hp': {'lvl': 50, 'current': 50, 'random': 20, 'exp': None},
             'mana': {'lvl': 20, 'current': 20, 'random': 0, 'exp': None},
             'mana_regen': {'lvl': 1, 'random': 0, 'exp': None},
-            'dmg': {'lvl': 5, 'random': 4, 'exp': None},
-            'armor': {'lvl': 0, 'random': 1, 'exp': None},
+            'dmg': {'lvl': 10, 'random': 5, 'exp': None},
+            'armor': {'lvl': 0, 'random': 3, 'exp': None},
             'stun': {'lvl': 0, 'exp': None, 'cooldown_current': 0,
-                     'duration_current': 0}
+                     'duration_current': 0},
+            'poison': {'lvl': 0, 'exp': None, 'cooldown_current': 0,
+                       'duration_current': 0},
+            'rejuvenation': {'lvl': 0, 'exp': None, 'cooldown_current': 0,
+                             'duration_current': 0}
         },
         'Regenerator': {
             'collection': 'enemies',
@@ -23,7 +27,11 @@ def input_db():
             'heal': {'lvl': 10, 'random': 1, 'exp': None},
             'armor': {'lvl': 1, 'random': 1, 'exp': None},
             'stun': {'lvl': 1, 'random': 1, 'exp': None, 'cooldown_current': 0,
-                     'duration_current': 0}
+                     'duration_current': 0},
+            'poison': {'lvl': 0, 'exp': None, 'cooldown_current': 0,
+                       'duration_current': 0},
+            'rejuvenation': {'lvl': 0, 'exp': None, 'cooldown_current': 0,
+                             'duration_current': 0}
         },
         'Filissimo': {
             'collection': 'players',
@@ -46,19 +54,20 @@ def input_db():
         },
         'website': {'collection': 'website',
                     'need_new_messages': True,
+                    'in_combat': True,
                     'player_col': 'players',
                     'npc_col': 'enemies',
                     'player_name': 'Filissimo',
                     'npc_name': 'Scrubby',
-                    'hp': {'max_exp': 40},
-                    'mana': {'max_exp': 50},
-                    'mana_regen': {'max_exp': 120},
-                    'dmg': {'max_exp': 120},
-                    'heal': {'max_exp': 170},
+                    'hp': {'max_exp': 70},
+                    'mana': {'max_exp': 80},
+                    'mana_regen': {'max_exp': 150},
+                    'dmg': {'max_exp': 110},
+                    'heal': {'max_exp': 150},
                     'armor': {'max_exp': 250},
-                    'stun': {'max_exp': 150, "duration": 1, 'cooldown': 3},
-                    'poison': {'max_exp': 150, "duration": 5, 'cooldown': 7},
-                    'rejuvenation': {'max_exp': 150, "duration": 5, 'cooldown': 7}
+                    'stun': {'max_exp': 140, "duration": 1, 'cooldown': 3},
+                    'poison': {'max_exp': 200, "duration": 5, 'cooldown': 7},
+                    'rejuvenation': {'max_exp': 200, "duration": 5, 'cooldown': 7}
                     }
     }
     return chars

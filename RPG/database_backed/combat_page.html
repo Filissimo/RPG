@@ -1,0 +1,112 @@
+<head>
+<style>
+table, th, td {
+  border: 2px solid black;
+}
+th, td {
+  padding: 5px;
+}
+</style>
+</head>
+<div class="outer" align="middle">
+    <table>
+        <tr>
+            <th>
+    {{win_loss_ratio}}
+            </th>
+        </tr>
+    </table>
+<table>
+    <tr>
+        <th colspan="2">{{mini_lvl_until_lvl_up}}</th>
+        <th colspan="2"; style="background-image: url('{{ url_for('static', filename='green.jpg') }}');
+         background-repeat-x: no-repeat;
+         background-size: {{ player_hp_number }}%">{{player_hp}} {{index_player_stunned}}
+            {{index_player_poisoned}} {{index_player_rejuvenating}}</th>
+        <th colspan="2"; style="background-image: url('{{ url_for('static', filename='green.jpg') }}');
+         background-repeat-x: no-repeat;
+         background-size: {{ npc_hp_number }}%">{{npc_hp}} {{index_npc_stunned}}
+            {{index_npc_poisoned}} {{index_npc_rejuvenating}}</th>
+    </tr>
+    <tr>
+        <th colspan="2">{{availability_of_lvl_up}}</th>
+        <th colspan="2"; style="background-image: url('{{ url_for('static', filename='blue.jpg') }}');
+         background-repeat-x: no-repeat;
+         background-size: {{ player_mana_number }}%">{{player_mana}}</th>
+        <th colspan="2"; style="background-image: url('{{ url_for('static', filename='blue.jpg') }}');
+         background-repeat-x: no-repeat;
+         background-size: {{ npc_mana_number }}%">{{npc_mana}}</th>
+    </tr>
+    <tr>
+        <th colspan="6">
+    {{ npc_name }} has {{ npc_dmg }} physical damage and {{ npc_armor }} armor.
+        </th>
+
+    </tr>
+    <tr>
+        <th colspan="6">
+    {{ message_player }}
+        </th>
+    </tr>
+    <tr>
+        <th colspan="6">
+    {{ message_npc }}
+        </th>
+    </tr>
+</table>
+    <table>
+    <tr>
+        <th>
+        <form action="/attack" method="post">
+        <button type="submit">👊</button>
+    </form>
+        </th>
+        <th>
+        <form action="/heal" method="post">
+        <button type="submit">➕</button>
+    </form>
+        </th>
+        <th>
+        <form action="/stun" method="post">
+        <button type="submit">{{button_stun}}</button>
+    </form>
+        </th>
+        </th>
+        <th>
+        <form action="/poison" method="post">
+        <button type="submit">{{button_poison}}</button>
+    </form>
+        </th>
+        </th>
+        <th>
+        <form action="/rejuvenation" method="post">
+        <button type="submit">{{button_rejuvenation}}</button>
+    </form>
+        </th>
+    </tr>
+    </table>
+    <table>
+        <tr>
+        <th>{{player_name}}</th>
+        <th>{{index_mana_regen}}</th>
+        <th>{{index_physical_dmg}}</th>
+        </tr>
+        <tr>
+        <th>{{index_heal}}</th>
+        <th>{{index_armor}}</th>
+        <th>{{index_stun}}</th>
+        </tr>
+        <tr>
+           <th>{{index_rejuvenation}}</th>
+           <th></th>
+           <th>{{index_poison}}</th>
+        </tr>
+        <tr>
+            <th colspan="3">
+        <form action="/restart" method="post">
+            <button type="submit">Restart Game</button>
+        </form>
+            </th>
+        </tr>
+    </table>
+</div>

@@ -16,6 +16,10 @@ def decision_parser(player_decision, npc_decision):
     calculator.begin_turn()
     if player_decision == 'stun':
         actions.stunning(player_name, npc_name)
+    if player_decision == 'poison':
+        actions.poisoning(player_name, npc_name)
+    if player_decision == 'rejuvenation':
+        actions.self_rejuvenation(player_name, npc_name)
     if player_decision == 'attack':
         actions.attack(player_name, npc_name)
     if player_decision == 'heal':

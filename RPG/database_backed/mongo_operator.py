@@ -38,13 +38,13 @@ class Operator:
                 expected_variables_shallow = {'collection', 'combat_number', 'lvl',
                                               'mini_lvl', 'lvl_down_counter', 'player_col',
                                               'npc_col', 'player_name', 'npc_name',
-                                              'player', 'npc', 'need_new_messages'}
+                                              'player', 'npc', 'need_new_messages', 'in_combat'}
                 for expected_variable in expected_variables_shallow:
                     if stat == expected_variable:
                         value = chars[char][stat]
                         char_type['stats'][stat] = value
                 expected_variables_deep = {'hp', 'mana', 'mana_regen',
-                                           'dmg', 'heal', 'armor', 'stun'}
+                                           'dmg', 'heal', 'armor', 'stun', 'poison', 'rejuvenation'}
                 for expected_variable in expected_variables_deep:
                     if stat == expected_variable:
                         sub_stat_list = chars[char][stat]

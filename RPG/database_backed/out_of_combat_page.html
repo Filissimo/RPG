@@ -21,45 +21,34 @@ th, td {
         <th colspan="2">{{mini_lvl_until_lvl_up}}</th>
         <th colspan="2"; style="background-image: url('{{ url_for('static', filename='green.jpg') }}');
          background-repeat-x: no-repeat;
-         background-size: {{ player_hp_number }}%">{{player_hp}}{{index_player_stunned}}</th>
+         background-size: {{ player_hp_number }}%">{{player_hp}} {{index_player_stunned}}
+            {{index_player_poisoned}} {{index_player_rejuvenating}}</th>
         <th colspan="2"; style="background-image: url('{{ url_for('static', filename='green.jpg') }}');
          background-repeat-x: no-repeat;
-         background-size: {{ npc_hp_number }}%">{{npc_hp}}{{index_npc_stunned}}</th>
+         background-size: {{ npc_hp_number }}%">{{npc_hp}} {{index_npc_stunned}}
+            {{index_npc_poisoned}} {{index_npc_rejuvenating}}</th>
     </tr>
     <tr>
         <th colspan="2">{{availability_of_lvl_up}}</th>
-        <th colspan="2">{{player_mana}}</th>
-        <th colspan="2">{{npc_mana}}</th>
-    </tr>
-    <tr>
-        <th colspan="6">
-    {{ message_player }}
-        </th>
-    </tr>
-    <tr>
-        <th colspan="6">
-    {{ message_npc }}
-        </th>
+        <th colspan="2"; style="background-image: url('{{ url_for('static', filename='blue.jpg') }}');
+         background-repeat-x: no-repeat;
+         background-size: {{ player_mana_number }}%">{{player_mana}}</th>
+        <th colspan="2"; style="background-image: url('{{ url_for('static', filename='blue.jpg') }}');
+         background-repeat-x: no-repeat;
+         background-size: {{ npc_mana_number }}%">{{npc_mana}}</th>
     </tr>
 </table>
     <table>
-    <tr>
-        <th>
-        <form action="/attack" method="post">
-        <button type="submit">👊</button>
-    </form>
-        </th>
-        <th>
-        <form action="/heal" method="post">
-        <button type="submit">➕</button>
-    </form>
-        </th>
-        <th>
-        <form action="/stun" method="post">
-        <button type="submit">{{button_stun}}</button>
-    </form>
-        </th>
-    </tr>
+        <tr>
+            <th>
+        <form action="/next_combat_same_enemy" method="post">
+        <button type="submit">next_combat_same_enemy</button>
+    </form></th>
+            <th>
+        <form action="/next_combat_enemy_lvl_up" method="post">
+        <button type="submit">next_combat_enemy_lvl_up</button>
+    </form></th>
+        </tr>
     </table>
     <table>
         <tr>
@@ -104,26 +93,20 @@ th, td {
     </form></th>
         </tr>
         <tr>
-           <th>
-
-           </th>
-           <th>
-
-           </th>
-           <th>
-
-           </th>
+           <th>{{index_rejuvenation}}</th>
+           <th></th>
+           <th>{{index_poison}}</th>
         </tr>
         <tr>
            <th>
-
-           </th>
+        <form action="/rejuvenation_lvl_up" method="post">
+        <button type="submit">rejuvenation_lvl_up</button>
+    </form></th>
+           <th></th>
            <th>
-
-           </th>
-           <th>
-
-           </th>
+        <form action="/poison_lvl_up" method="post">
+        <button type="submit">poison_lvl_up</button>
+    </form></th>
         </tr>
         <tr>
             <th colspan="3">

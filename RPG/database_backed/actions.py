@@ -57,7 +57,7 @@ def self_healing(actor, target):
             if hp_max >= hp_current + this_heal:
                 hp_current_after_heal = hp_current + this_heal
                 actor_updates.set_stat('hp_current', hp_current_after_heal)
-                console = f'You healed yourself for {this_heal} HP'
+                console = f'{actor} healed himself for {this_heal} HP'
                 if heal_exp is not None:
                     heal_exp_after_heal = heal_exp + this_heal
                     actor_updates.set_stat('heal_exp', heal_exp_after_heal)
@@ -65,7 +65,7 @@ def self_healing(actor, target):
                 hp_current_after_heal = hp_max
                 actor_updates.set_stat('hp_current', hp_current_after_heal)
                 console = (
-                    f'{actor} overhealed {actor} by'
+                    f'{actor} overhealed himself by '
                     f'{hp_current + this_heal - hp_max} HP')
                 if heal_exp is not None:
                     heal_exp_after_heal = hp_max - hp_current
@@ -122,6 +122,67 @@ def stunning(actor, target):
             attack(actor, target)
             console = website_updates.get_stat(actor)
             console = f'Can\'t cast stun, but {console}'
+            website_updates.set_stat(actor, console)
+    else:
+        console = f'{actor} can\'t move'
+        website_updates.set_stat(actor, console)
+
+
+def poisoning(actor, target):
+    actor_updates = calculator.define_roles(actor, target)['actor_role']
+    target_updates = calculator.define_roles(actor, target)['target_role']
+    stun_duration_current = actor_updates.get_stat('stun_duration_current')
+    if stun_duration_current == 0:
+        poison = actor_updates.get_stat('poison_lvl') * 2
+        mana_current = actor_updates.get_stat('mana_current')
+        poison_cooldown_current = actor_updates.get_stat('poison_cooldown_current')
+        if mana_current >= poison > 0 and poison_cooldown_current == 0:
+            poison_cooldown = website_updates.get_stat('poison_cooldown')
+            actor_updates.set_stat('poison_cooldown_current', poison_cooldown)
+            mana_exp = actor_updates.get_stat('mana_exp')
+            if mana_exp is not None:
+                mana_exp_after_poison = mana_exp + poison
+                actor_updates.set_stat('mana_exp', mana_exp_after_poison)
+            mana_current_after_poison = mana_current - poison
+            actor_updates.set_stat('mana_current', mana_current_after_poison)
+            poison_duration = website_updates.get_stat('poison_duration')
+            target_updates.set_stat('poison_duration_current', poison_duration)
+            console = f'{actor} poisoned {target}'
+            website_updates.set_stat(actor, console)
+        else:
+            attack(actor, target)
+            console = website_updates.get_stat(actor)
+            console = f'Can\'t cast poison, but {console}'
+            website_updates.set_stat(actor, console)
+    else:
+        console = f'{actor} can\'t move'
+        website_updates.set_stat(actor, console)
+
+
+def self_rejuvenation(actor, target):
+    actor_updates = calculator.define_roles(actor, target)['actor_role']
+    stun_duration_current = actor_updates.get_stat('stun_duration_current')
+    if stun_duration_current == 0:
+        rejuvenation = actor_updates.get_stat('rejuvenation_lvl') * 2
+        mana_current = actor_updates.get_stat('mana_current')
+        rejuvenation_cooldown_current = actor_updates.get_stat('rejuvenation_cooldown_current')
+        if mana_current >= rejuvenation > 0 and rejuvenation_cooldown_current == 0:
+            rejuvenation_cooldown = website_updates.get_stat('rejuvenation_cooldown')
+            actor_updates.set_stat('rejuvenation_cooldown_current', rejuvenation_cooldown)
+            mana_exp = actor_updates.get_stat('mana_exp')
+            if mana_exp is not None:
+                mana_exp_after_rejuvenation = mana_exp + rejuvenation
+                actor_updates.set_stat('mana_exp', mana_exp_after_rejuvenation)
+            mana_current_after_rejuvenation = mana_current - rejuvenation
+            actor_updates.set_stat('mana_current', mana_current_after_rejuvenation)
+            rejuvenation_duration = website_updates.get_stat('rejuvenation_duration')
+            actor_updates.set_stat('rejuvenation_duration_current', rejuvenation_duration)
+            console = f'{actor} rejuvenating'
+            website_updates.set_stat(actor, console)
+        else:
+            attack(actor, target)
+            console = website_updates.get_stat(actor)
+            console = f'Can\'t cast rejuvenation, but {console}'
             website_updates.set_stat(actor, console)
     else:
         console = f'{actor} can\'t move'
