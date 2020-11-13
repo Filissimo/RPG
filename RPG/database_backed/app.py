@@ -347,5 +347,5 @@ def game():
                                win_loss_ratio=win_loss_info,
                                )
 
-    # app.run(host='0.0.0.0')
-    app.run(debug=True)
+    app.run(host='0.0.0.0')
+    # app.run(debug=True)
