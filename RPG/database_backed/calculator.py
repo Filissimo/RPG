@@ -238,7 +238,7 @@ class Calculator:
         hp_random = npc_updates.get_stat('hp_random')
         dmg = npc_updates.get_stat('dmg_lvl')
         dmg_random = npc_updates.get_stat('dmg_random')
-        armor = npc_updates.get_stat('armor')
+        armor = npc_updates.get_stat('armor_lvl')
         armor_random = npc_updates.get_stat('armor_random')
         lvl += 1
         dmg_lvl_up = random.randint(0, dmg_random)
