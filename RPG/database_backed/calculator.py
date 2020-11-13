@@ -206,8 +206,6 @@ class Calculator:
                         lvl_down_counter += max_exp_of_stat
                     player_updates.set_stat(f'{stat_to_change}_lvl', lvl_of_stat)
                     player_updates.set_stat('lvl_down_counter', lvl_down_counter)
-
-#                elif stat_to_change == stat_to_lvl_up:
             lvl_down_counter = player_updates.get_stat('lvl_down_counter')
             exp_of_stat_to_lvl_up = player_updates.get_stat(f'{stat_to_lvl_up}_exp')
             total_exp_for_lvl_up = lvl * 10 + lvl_down_counter
@@ -240,11 +238,16 @@ class Calculator:
         hp_random = npc_updates.get_stat('hp_random')
         dmg = npc_updates.get_stat('dmg_lvl')
         dmg_random = npc_updates.get_stat('dmg_random')
+        armor = npc_updates.get_stat('armor')
+        armor_random = npc_updates.get_stat('armor_random')
         lvl += 1
         dmg_lvl_up = random.randint(0, dmg_random)
+        armor_lvl_up = random.randint(0, armor_random)
         hp_lvl_up = hp_random - dmg_lvl_up + lvl
         dmg_after_lvl_up = dmg + dmg_lvl_up
         hp_after_lvl_up = hp + hp_lvl_up
+        armor_after_lvl_up = armor + armor_lvl_up
         npc_updates.set_stat('lvl', lvl)
         npc_updates.set_stat('hp_lvl', hp_after_lvl_up)
         npc_updates.set_stat('dmg_lvl', dmg_after_lvl_up)
+        npc_updates.set_stat("armor_lvl", armor_after_lvl_up)

@@ -60,7 +60,7 @@ def input_db():
                     'player_name': 'Filissimo',
                     'npc_name': 'Scrubby',
                     'hp': {'max_exp': 70},
-                    'mana': {'max_exp': 80},
+                    'mana': {'max_exp': 50},
                     'mana_regen': {'max_exp': 350},
                     'dmg': {'max_exp': 110},
                     'heal': {'max_exp': 150},
