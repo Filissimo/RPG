@@ -230,11 +230,11 @@ def game():
         won = player_updates.get_stat('won')
         win_ratio = 0
         if won > 0:
-            win_ratio = won / (combat_number - 1) * 100
+            win_ratio = int(won / (combat_number - 1) * 100)
         lost = player_updates.get_stat('lost')
         loss_ratio = 0
         if lost > 0:
-            loss_ratio = lost / (combat_number - 1) * 100
+            loss_ratio = int(lost / (combat_number - 1) * 100)
         win_loss_info = f'Won: {won} ({win_ratio}%), ' \
                         f'lost: {lost} ({loss_ratio}%), ' \
                         f'This is combat №{combat_number}'
@@ -316,11 +316,11 @@ def game():
         won = player_updates.get_stat('won')
         win_ratio = 0
         if won > 0:
-            win_ratio = won / (combat_number - 1) * 100
+            win_ratio = int(won / (combat_number - 1) * 100)
         lost = player_updates.get_stat('lost')
         loss_ratio = 0
         if lost > 0:
-            loss_ratio = lost / (combat_number - 1) * 100
+            loss_ratio = int(lost / (combat_number - 1) * 100)
         win_loss_info = f'Won: {won} ({win_ratio}%), ' \
                         f'lost: {lost} ({loss_ratio}%), ' \
                         f'Next combat will be №{combat_number}'
