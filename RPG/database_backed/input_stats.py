@@ -65,9 +65,9 @@ def input_db():
                     'dmg': {'max_exp': 150},
                     'heal': {'max_exp': 150},
                     'armor': {'max_exp': 250},
-                    'stun': {'max_exp': 200, "duration": 1, 'cooldown': 3},
-                    'poison': {'max_exp': 300, "duration": 5, 'cooldown': 7},
-                    'rejuvenation': {'max_exp': 250, "duration": 5, 'cooldown': 7}
+                    'stun': {'max_exp': 150, "duration": 1, 'cooldown': 4},
+                    'poison': {'max_exp': 250, "duration": 4, 'cooldown': 6},
+                    'rejuvenation': {'max_exp': 250, "duration": 6, 'cooldown': 8}
                     }
     }
     return chars
