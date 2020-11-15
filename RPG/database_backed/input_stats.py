@@ -62,12 +62,12 @@ def input_db():
                     'hp': {'max_exp': 70},
                     'mana': {'max_exp': 50},
                     'mana_regen': {'max_exp': 350},
-                    'dmg': {'max_exp': 110},
+                    'dmg': {'max_exp': 100},
                     'heal': {'max_exp': 150},
                     'armor': {'max_exp': 250},
-                    'stun': {'max_exp': 140, "duration": 1, 'cooldown': 3},
-                    'poison': {'max_exp': 200, "duration": 5, 'cooldown': 7},
-                    'rejuvenation': {'max_exp': 200, "duration": 5, 'cooldown': 7}
+                    'stun': {'max_exp': 200, "duration": 1, 'cooldown': 3},
+                    'poison': {'max_exp': 300, "duration": 5, 'cooldown': 7},
+                    'rejuvenation': {'max_exp': 250, "duration": 5, 'cooldown': 7}
                     }
     }
     return chars
